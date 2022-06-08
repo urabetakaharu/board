@@ -162,5 +162,11 @@ class PostController extends Controller
         $post->delete();
         return redirect('/');
     }
-    
+    // public function rist(Post $post)
+    // {
+    //     // $post->load('category','user','comments.user');
+    //     //  dd($post);
+    //     return view('posts/rist');
+        
+    // }
 }

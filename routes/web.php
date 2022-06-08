@@ -24,3 +24,8 @@ Route::resource('/posts', 'PostController')->except(['index']);
 Route::resource('/users', 'UserController');
 Route::resource('/comments', 'CommentController')->middleware('auth');
 Route::delete('/posts/{post}', 'PostController@delete');
+
+// Route::get('/', 'PostController@index')->name('posts.index');
+// Route::get('/posts/search', 'PostController@search')->name('posts.search');
+
+// Route::resource('/posts', 'PostController')->except(['index']);
