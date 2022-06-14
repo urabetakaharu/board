@@ -37,7 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function posts(){
+    public function posts()
+    {
         return $this->hasMany(\App\Post::class,'user_id','id');
+    }
+    public function favorites()
+    {
+        return $this->belongsToMany('App\Post')->withTimestamps();
     }
 }

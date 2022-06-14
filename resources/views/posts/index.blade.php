@@ -71,6 +71,24 @@
                 @method('DELETE')
                 <button type="submit"class="btn btn-primary">削除</button> 
             </form>
+            <div class="row justify-content-center">
+                @if($post->users()->where('user_id', Auth::id())->exists())
+                    <div class="col-md-3">
+                      <form action="{{ route('unfavorites', $post) }}" method="POST">
+                         @csrf
+                         <input type="submit" value="&#xf164;{{ $post->users()->count() }}" class="fas btn btn-link">
+                      </form>
+                     </div>
+                @else
+                    <div class="col-md-3">
+                      <form action="{{ route('favorites', $post) }}" method="POST">
+                        @csrf
+                        <input type="submit" value="&#xf164;{{ $post->users()->count() }}" class="fas btn btn-link">
+                      </form>
+                     </div>
+                @endif
+                
+            </div>
           </div>
         </div>
         
