@@ -24,7 +24,7 @@ class PostController extends Controller
             $posts->load('category','user');
             $posts->load('category','user','tags');
             
-            return view('posts/index',compact('posts','category_id'));
+            return view('posts/index',compact('posts'));
         
         }if(isset($q['tag_name'])){
             
@@ -32,7 +32,7 @@ class PostController extends Controller
             $posts->load('category','user');
             $posts->load('category','user','tags');
             
-            return view('posts/index',compact('posts','tag_name'));
+            return view('posts/index',compact('posts'));
             
         }else{
             $posts=Post::latest()->paginate(5);
