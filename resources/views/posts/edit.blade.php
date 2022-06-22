@@ -56,23 +56,35 @@
 
             <div class="form-group">
                 <label for="exampleInputEmail1" class="form-label">category</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="category_id" >
-                 
-                  
-                  @foreach($categories as $key => $category) 
-                    <option value="{{  $key+1 }}"
-                    @if($key+1 == $post->category->category_id? 'selected' :'')
-                    @endif
-                    >{{ $category->category_name }}</option>
-                    
-                  @endforeach
-                    
+                <select class="form-control" id="exampleFormControlSelect1" name="category_id">
+                    <option selected="">選択する</option>
+                    <option value="1">家具</option>
+                    <option value="2">家電</option>
+                    <option value="3">自転車</option>
+                    <option value="4">車のパーツ</option>
+                    <option value="5">バイク</option>
+                    <option value="6">楽器</option>
+                    <option value="7">チケット</option>
+                    <option value="8">生活雑貨</option>
+                    <option value="9">子供用品</option>
+                    <option value="10">おもちゃ</option>
+                    <option value="11">スポーツ</option>
+                    <option value="12">パソコン</option>
+                    <option value="13">携帯/スマホ</option>
+                    <option value="14">本/CD/DVD</option>
+                    <option value="15">服/ファッション</option>
+                    <option value="16">靴/バッグ</option>
+                    <option value="17">コスメ/ヘルスケア</option>
+                    <option value="18">食品</option>
+                    <option value="19">お酒</option>
+                    <option value="20">グッツ</option>
+                    <option value="21">その他</option>
                 </select>
             </div>
             
             <div class="form-group">
                 <label for="comment">comment</label>
-                <textarea class="form-control" row="5" id="comment" name="content" value="{{ $post->comment }}"></textarea>
+                <textarea class="form-control" row="5" id="comment" name="content"></textarea>
             </div>
             
             <input type="hidden" name="user_id" value="{{ Auth::id() }}">

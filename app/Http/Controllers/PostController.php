@@ -118,15 +118,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post, Category $category)
+    public function edit(Post $post)
     {
         
         return view('posts/edit')->with([
             'post' => $post,
-            'categories' => $category->all()
             ]);
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
