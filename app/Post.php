@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
@@ -11,6 +12,8 @@ class Post extends Model
      *
      * @var array
      */
+    
+    use SoftDeletes;
     
     protected $fillable = [
         'user_id',
