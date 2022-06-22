@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('title')->nullable();
             $table->text('content')->nullable();
             
-            $table->softDeletes();
+           
             
             // idと一緒に投稿も削除される
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
