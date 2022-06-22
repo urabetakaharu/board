@@ -19364,6 +19364,7 @@ readers do not read off random characters that represent icons */
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
 }
-.row justify-content-center{
-  float:rig;
+
+.col-md-3{
+  float: right
 }

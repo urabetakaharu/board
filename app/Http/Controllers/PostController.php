@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Post;
 use App\Tag;
+use App\Category;
+
 
 class PostController extends Controller
 {
@@ -50,6 +52,7 @@ class PostController extends Controller
     public function create()
     {
          return view('posts/create');
+         
     }
 
     /**
@@ -115,9 +118,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post, Category $category)
     {
-        //
+        
+        return view('posts/edit')->with([
+            'post' => $post,
+            'categories' => $category->all()
+            ]);
     }
 
     /**
@@ -127,9 +134,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        //validateはPostRequestのrulesを呼び出す
+        //$post->create($request->validated());
+        
+        $input_post = $request['post'];
+        $post->fill($input_post)->save();
+    
+        return redirect('/posts/' . $post->id);
     }
 
     /**
@@ -138,9 +151,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect('/');
     }
     
     public function search(Request $request)
@@ -157,11 +171,7 @@ class PostController extends Controller
             'search_query'=>$request->search
             ]);
     }
-    public function delete(Post $post)
-    {
-        $post->delete();
-        return redirect('/');
-    }
+    
     // public function rist(Post $post)
     // {
     //     // $post->load('category','user','comments.user');

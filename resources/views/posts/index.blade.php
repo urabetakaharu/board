@@ -2,7 +2,30 @@
 
 @section('content')
 
-<h1><div class="card-header">欲しいもの掲示板</div></h1>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">一覧表示</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">お気に入り</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">ランキング</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">フォローリスト</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">欲しいものリスト</a>
+  </li>
+  <li class="nav-item">
+    <a href="{{ route('posts.create') }}" class="nav-link">投稿</a>
+  </li>
+ 
+  <!--<li class="nav-item">-->
+  <!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+  <!--</li>-->
+</ul>
 
 <div class="card-body">
 <div class="container">
@@ -66,29 +89,23 @@
                 @endforeach
             </p>
             <a href="{{ route('posts.show',$post->id) }}" class="btn btn-primary">詳細</a>
-            <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline-block">
-                @csrf
-                @method('DELETE')
-                <button type="submit"class="btn btn-primary">削除</button> 
-            </form>
-            <div class="row justify-content-center">
-                @if($post->users()->where('user_id', Auth::id())->exists())
-                    <div class="col-md-3">
-                      <form action="{{ route('unfavorites', $post) }}" method="POST">
-                         @csrf
-                         <input type="submit" value="&#xf164;{{ $post->users()->count() }}" class="fas btn btn-link">
-                      </form>
-                     </div>
-                @else
-                    <div class="col-md-3">
-                      <form action="{{ route('favorites', $post) }}" method="POST">
-                        @csrf
-                        <input type="submit" value="&#xf164;{{ $post->users()->count() }}" class="fas btn btn-link">
-                      </form>
-                     </div>
-                @endif
-                
-            </div>
+            
+            @if($post->users()->where('user_id', Auth::id())->exists())
+                <div class="col-md-3">
+                  <form action="{{ route('unfavorites', $post) }}" method="POST">
+                     @csrf
+                     <input type="submit" value="&#xf164;{{ $post->users()->count() }}" class="fas btn btn-link">
+                  </form>
+                 </div>
+            @else
+                <div class="col-md-3">
+                  <form action="{{ route('favorites', $post) }}" method="POST">
+                    @csrf
+                    <input type="submit" value="&#xf164;{{ $post->users()->count() }}" class="fas btn btn-link">
+                  </form>
+                 </div>
+            @endif
+            
           </div>
         </div>
         
