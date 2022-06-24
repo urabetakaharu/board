@@ -19,7 +19,7 @@
     <a class="nav-link" href="#">欲しいものリスト</a>
   </li>
   <li class="nav-item">
-    <a href="{{ route('posts.create') }}" class="nav-link active">投稿</a>
+    <a href='/posts/create' class="nav-link active">投稿</a>
   </li>
 </ul>
 
@@ -48,10 +48,6 @@
                 <input type="text" class="form-control" id="exampleInputEmail1" placeholder="tiltle" name="title">
             </div>
             
-            <!--<div class="form-group">-->
-            <!--    <label for="exampleFormControlFile1">Example file input</label>-->
-            <!--    <input type="file" class="form-control-file" id="exampleFormControlFile1" placeholder="tiltle" name="title">-->
-            <!--</div>-->
 
             <div class="form-group">
                 <label for="exampleInputEmail1" class="form-label">category</label>
@@ -87,7 +83,7 @@
             </div>
             
             <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">保存</button>
         </form>
     </div>
     </div>

@@ -61,16 +61,20 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request, Post $post)
+    public function store(PostRequest $request)
     {
         //validateはPostRequestのrulesを呼び出す
-        $post->create($request->validated());
+        // $post->create($request->validated());
         
-        $post->user_id=$request->user_id;
-        $post->category_id=$request->category_id;
-        $post->content=$request->content;
-        $post->title=$request->title;
-        
+        // $post->user_id=$request->user_id;
+        // $post->category_id=$request->category_id;
+        // $post->content=$request->content;
+        // $post->title=$request->title;
+        $post=new Post;
+        $post->user_id = $request->user_id;
+        $post->category_id = $request->category_id;
+        $post->content = $request->content;
+        $post->title = $request->title;
         
         
         
@@ -123,9 +127,10 @@ class PostController extends Controller
         
         return view('posts/edit')->with([
             'post' => $post,
+            
             ]);
     }
-    
+
     /**
      * Update the specified resource in storage.
      *

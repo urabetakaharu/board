@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<h1><div class="card-header">欲しいもの掲示板</div></h1>
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link" aria-current="page" href="{{ url('/') }}">一覧表示</a>
@@ -84,11 +84,11 @@
             
             <div class="form-group">
                 <label for="comment">comment</label>
-                <textarea class="form-control" row="5" id="comment" name="content"></textarea>
+                <textarea class="form-control" row="5" id="comment" name="content" value="{{ $post->comment }}"></textarea>
             </div>
             
             <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">保存</button>
             
             <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline-block">
                 @csrf

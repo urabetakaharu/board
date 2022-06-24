@@ -56,7 +56,25 @@
                      </div>
                 @endif
                 
-                <a href="{{ route('posts.edit',$post->id) }}" class="btn btn-primary">編集</a>
+                <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline-block">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" style="display:none">
+                    <button type="submit"class="btn btn-primary"><span onclick="return deletePost(this);">削除</span></button> 
+                </form>
+                
+                <script>
+                  function deletePost(){
+                      const result = window.confirm("本当に削除しますか？");
+                      if (result){
+                          return true;
+                      }else{
+                          return false;
+                      }
+                  }
+                </script>
+                
+                <!--<a href="{{ route('posts.edit',$post->id) }}" class="btn btn-primary">編集</a>-->
                 
             </div>
         </div>
