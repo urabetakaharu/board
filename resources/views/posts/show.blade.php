@@ -19,10 +19,11 @@
     <a class="nav-link" href="#">欲しいものリスト</a>
   </li>
   <li class="nav-item">
-    <a href="{{ route('posts.create') }}" class="nav-link">投稿</a>
+    <a href='/posts/create' class="nav-link">投稿</a>
   </li>
 </ul>
 
+<div class="card-header">{{ $post->title }}の投稿</div>
 <div class="card-body">
     @if (session('status'))
         <div class="alert alert-success" role="alert">
@@ -63,16 +64,7 @@
                     <button type="submit"class="btn btn-primary"><span onclick="return deletePost(this);">削除</span></button> 
                 </form>
                 
-                <script>
-                  function deletePost(){
-                      const result = window.confirm("本当に削除しますか？");
-                      if (result){
-                          return true;
-                      }else{
-                          return false;
-                      }
-                  }
-                </script>
+                
                 
                 <!--<a href="{{ route('posts.edit',$post->id) }}" class="btn btn-primary">編集</a>-->
                 
@@ -94,6 +86,17 @@
             </div>
         @endforeach
         <a href="{{ route('comments.create',['post_id'=>$post->id]) }}" class="btn btn-primary">コメントする</a>
+        
+        <script>
+          function deletePost(){
+              const result = window.confirm("本当に削除しますか？");
+              if (result){
+                  return true;
+              }else{
+                  return false;
+              }
+          }
+        </script>
       </div>
 </div>
 @endsection

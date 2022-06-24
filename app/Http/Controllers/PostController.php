@@ -138,17 +138,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, Post $post)
+    public function update(Request $request, $id)
     {
-        //validateはPostRequestのrulesを呼び出す
-        //$post->create($request->validated());
-        
-        $input_post = $request['post'];
-        $post->fill($input_post)->save();
-    
-        return redirect('/posts/' . $post->id);
+        //
     }
-
     /**
      * Remove the specified resource from storage.
      *

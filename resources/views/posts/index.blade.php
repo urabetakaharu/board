@@ -19,9 +19,8 @@
     <a class="nav-link" href="#">欲しいものリスト</a>
   </li>
   <li class="nav-item">
-    <a href="{{ route('posts.create') }}" class="nav-link">投稿</a>
+    <a href='/posts/create' class="nav-link">投稿</a>
   </li>
- 
   <!--<li class="nav-item">-->
   <!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
   <!--</li>-->

@@ -2,6 +2,27 @@
 
 @section('content')
 
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" href="{{ url('/') }}">一覧表示</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">お気に入り</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">ランキング</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">フォローリスト</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">欲しいものリスト</a>
+  </li>
+  <li class="nav-item">
+    <a href='/posts/create' class="nav-link">投稿</a>
+  </li>
+</ul>
+
 <div class="card-header">{{ $user->name }}の投稿</div>
 <div class="card-body">
     @if (session('status'))
