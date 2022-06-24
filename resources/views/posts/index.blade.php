@@ -4,7 +4,7 @@
 
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">一覧表示</a>
+    <a class="nav-link active" aria-current="page" href="{{ url('/') }}">一覧表示</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">お気に入り</a>
@@ -93,14 +93,14 @@
                 <div class="col-md-3">
                   <form action="{{ route('unfavorites', $post) }}" method="POST">
                      @csrf
-                     <input type="submit" value="&#xf164;{{ $post->users()->count() }}" class="fas btn btn-link">
+                     <input type="submit" value="&#xf004;{{ $post->users()->count() }}" class="fas btn btn-link">
                   </form>
                  </div>
             @else
                 <div class="col-md-3">
                   <form action="{{ route('favorites', $post) }}" method="POST">
                     @csrf
-                    <input type="submit" value="&#xf164;{{ $post->users()->count() }}" class="fas btn btn-link">
+                    <input type="submit" value="&#xf004;{{ $post->users()->count() }}" class="fas btn btn-link">
                   </form>
                  </div>
             @endif

@@ -45,14 +45,14 @@
                     <div class="col-md-3">
                       <form action="{{ route('unfavorites', $post) }}" method="POST">
                          @csrf
-                         <input type="submit" value="&#xf164;{{ $post->users()->count() }}" class="fas btn btn-link">
+                         <input type="submit" value="&#xf004;{{ $post->users()->count() }}" class="fas btn btn-link">
                       </form>
                      </div>
                 @else
                     <div class="col-md-3">
                       <form action="{{ route('favorites', $post) }}" method="POST">
                         @csrf
-                        <input type="submit" value="&#xf164;{{ $post->users()->count() }}" class="fas btn btn-link">
+                        <input type="submit" value="&#xf004;{{ $post->users()->count() }}" class="fas btn btn-link">
                       </form>
                      </div>
                 @endif
@@ -71,7 +71,7 @@
             </div>
         </div>
       <div class ="p-3">
-      <h3 class="card_title">コメント一覧</h3>
+      <h4 class="card_title"></h4>
         @foreach($post->comments as $comment)
             <div class="card">
               <div class="card-body">
@@ -85,6 +85,7 @@
               </div>
             </div>
         @endforeach
+        <div class="card-body-br"></div>
         <a href="{{ route('comments.create',['post_id'=>$post->id]) }}" class="btn btn-primary">コメントする</a>
         
         <script>
