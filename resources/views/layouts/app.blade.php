@@ -8,7 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', '欲しいもの掲示板') }}</title>
-    <link rel="shortcut icon" type="image/x-icon"  href="{{ asset('/favicon.ico') }}">
+    
+    <link rel="shortcut icon" type="image/x-icon"  href="{{ asset('images/favicon (3).ico') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
